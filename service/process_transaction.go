@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	uLog "microservice/util/logger"
+	uLog "github.com/wahyunurdian26/util/logger"
 )
 
 func (s *trxProcessorService) ProcessTransaction(ctx context.Context, trxID string) error {

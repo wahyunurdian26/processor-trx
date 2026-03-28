@@ -8,8 +8,8 @@ import (
 	grpctransport "github.com/go-kit/kit/transport/grpc"
 	"google.golang.org/grpc"
 
-	pbaccount "microservice/cp-proto/account"
-	"microservice/trx-processor/repository"
+	pbaccount "github.com/wahyunurdian26/client/account"
+	"github.com/wahyunurdian26/processor-trx/repository"
 )
 
 type accountClient struct {

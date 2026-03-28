@@ -1,7 +1,7 @@
 package main
 
 import (
-	"microservice/trx-processor/transport"
+	"github.com/wahyunurdian26/processor-trx/transport"
 	_ "github.com/joho/godotenv/autoload"
 )
 

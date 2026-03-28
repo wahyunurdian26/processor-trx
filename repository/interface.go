@@ -2,7 +2,7 @@ package repository
 
 import (
 	"context"
-	"microservice/trx-processor/model"
+	"github.com/wahyunurdian26/processor-trx/model"
 )
 
 type TransactionRepository interface {

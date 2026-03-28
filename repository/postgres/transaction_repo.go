@@ -5,8 +5,8 @@ import (
 	"errors"
 	"time"
 
-	"microservice/trx-processor/model"
-	"microservice/trx-processor/repository"
+	"github.com/wahyunurdian26/processor-trx/model"
+	"github.com/wahyunurdian26/processor-trx/repository"
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgxpool"
 )

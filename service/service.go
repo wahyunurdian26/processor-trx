@@ -1,8 +1,8 @@
 package service
 
 import (
-	"microservice/trx-processor/repository"
-	"microservice/util/broker"
+	"github.com/wahyunurdian26/processor-trx/repository"
+	"github.com/wahyunurdian26/util/broker"
 )
 
 type trxProcessorService struct {

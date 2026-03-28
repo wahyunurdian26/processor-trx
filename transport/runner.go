@@ -6,8 +6,8 @@ import (
 	"os/signal"
 	"syscall"
 
-	"microservice/trx-processor/constanta"
-	uLog "microservice/util/logger"
+	"github.com/wahyunurdian26/processor-trx/constanta"
+	uLog "github.com/wahyunurdian26/util/logger"
 )
 
 func (g *GrpcServer) Run() {

@@ -4,9 +4,10 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"google.golang.org/grpc/metadata"
 
-	"microservice/util/requestid"
-	uLog "microservice/util/logger"
+	uLog "github.com/wahyunurdian26/util/logger"
+	"github.com/wahyunurdian26/util/requestid"
 )
 
 func (s *trxProcessorService) SubscribeTransaction(ctx context.Context) error {
@@ -18,8 +19,8 @@ func (s *trxProcessorService) SubscribeTransaction(ctx context.Context) error {
 }
 
 func (s *trxProcessorService) handleTransactionMessage(exchange string, queue string, headers map[string]interface{}, body []byte) error {
-	ctx := requestid.MiddlewareRequestIdAMQP(context.Background(), headers)
-	
+	ctx := requestid.MiddlewareRequestId(context.Background(), metadata.Pairs(requestid.RequestIdAttr, fmt.Sprintf("%v", headers[requestid.RequestIdAttr])))
+
 	uLog.LogInfo(ctx, "handleTransactionMessage", "Received transaction initiated event")
 
 	var event map[string]interface{}
