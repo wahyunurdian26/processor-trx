@@ -13,8 +13,8 @@ type Config struct {
 
 func LoadConfigs() Config {
 	return Config{
-		DatabaseUrl: config.Get(constanta.DatabaseUrl, "postgres://postgres:postgres@localhost:5432/omnipay_db?sslmode=disable"),
-		RabbitMqUrl: config.Get(constanta.RabbitMqUrl, "amqp://guest:guest@localhost:5672/"),
-		AccountServiceAddr: config.Get(constanta.AccountServiceAddr, "localhost:6667"),
+		DatabaseUrl: config.Get(constanta.DatabaseUrl, "postgres://postgres:postgres@postgres-processor:5432/omnipay_db?sslmode=disable"),
+		RabbitMqUrl: config.Get(constanta.RabbitMqUrl, "amqp://guest:guest@rabbitmq:5672/"),
+		AccountServiceAddr: config.Get(constanta.AccountServiceAddr, "service-account:6667"),
 	}
 }
