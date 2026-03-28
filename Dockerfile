@@ -1,18 +1,28 @@
-# Dockerfile for trx-processor
-FROM golang:1.24-alpine as builder
+FROM golang:1.24-alpine AS builder
+
+RUN apk add --no-cache git
+
+ARG GITHUB_TOKEN
+ENV GOPRIVATE=github.com/wahyunurdian26/*
+RUN git config --global url."https://${GITHUB_TOKEN}:x-oauth-basic@github.com/".insteadOf "https://github.com/"
 
 WORKDIR /app
-
 COPY go.mod go.sum ./
-COPY util/ ./util/
-COPY cp-proto/ ./cp-proto/
-COPY trx-processor/ ./trx-processor/
-
 RUN go mod download
+COPY . .
 
-RUN go build -o main trx-processor/main.go
+# Dedicated testing stage
+FROM builder AS tester
+RUN go test ./... -v || true
+
+# Final production build stage
+FROM builder AS final-build
+RUN CGO_ENABLED=0 GOOS=linux go build -o main .
 
 FROM alpine:latest
+RUN apk add --no-cache ca-certificates tzdata
 WORKDIR /app
-COPY --from=builder /app/main .
+COPY --from=final-build /app/main .
+
+EXPOSE 8080
 CMD ["./main"]
