@@ -7,7 +7,7 @@ require (
 	github.com/jackc/pgx/v5 v5.8.0
 	github.com/joho/godotenv v1.5.1
 	github.com/wahyunurdian26/client v0.0.3-0.20260328154636-96c8ec8e6569
-	github.com/wahyunurdian26/util v0.0.1
+	github.com/wahyunurdian26/util v0.0.2-0.20260328160208-ff98629b068d
 	google.golang.org/grpc v1.79.3
 )
 
@@ -29,7 +29,7 @@ require (
 	github.com/joeshaw/multierror v0.0.0-20140124173710-69b34d4ec901 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/prometheus/procfs v0.7.3 // indirect
-	github.com/rabbitmq/amqp091-go v1.2.0 // indirect
+	github.com/rabbitmq/amqp091-go v1.10.0 // indirect
 	github.com/santhosh-tekuri/jsonschema v1.2.4 // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
 	go.elastic.co/apm v1.15.0 // indirect
